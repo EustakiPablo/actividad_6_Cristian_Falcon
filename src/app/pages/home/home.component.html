@@ -1,0 +1,15 @@
+<div class="container my-4">
+  <!-- Grid responsiva: 1 columna en móviles, 2 en tablets y 4 en pantallas medianas/grandes -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-5">
+    @for (user of users(); track user._id) {
+        <app-user-card [user]="user"></app-user-card>
+    }
+  </div>
+</div>
+
+
+
+
+
+
+
