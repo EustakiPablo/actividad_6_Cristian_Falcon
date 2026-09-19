@@ -21,4 +21,8 @@ export class UsersService {
         return await firstValueFrom(this.httpClient.post<IUser>(this.apiUrl, user));
     }
 
+    async updateUser(_id: string, user: IUser) {
+        return await firstValueFrom(this.httpClient.put<IUser>(`${this.apiUrl}/${_id}`, user));
+    }
+
 }
