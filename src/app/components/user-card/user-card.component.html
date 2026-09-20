@@ -19,7 +19,7 @@
     <div class="d-flex justify-content-around align-items-center pt-3 border-top mt-auto">
 
         <!-- Lupa: Ver detalle -->
-        <a class="btn btn-link text-decoration-none p-0 border-0 action-btn">
+        <a class="btn btn-link text-decoration-none p-0 border-0 action-btn" [routerLink]="['/user', user()._id]">
             <div class="d-flex flex-column align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-search" viewBox="0 0 16 16">
@@ -45,7 +45,7 @@
         </a>
 
         <!-- Papelera: Borrar -->
-        <button type="button" class="btn btn-link text-decoration-none p-0 border-0 action-btn">
+        <button (click)="delete()" type="button" class="btn btn-link text-decoration-none p-0 border-0 action-btn">
             <div class="d-flex flex-column align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-trash" viewBox="0 0 16 16">
