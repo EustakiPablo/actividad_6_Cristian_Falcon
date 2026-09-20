@@ -1,0 +1,37 @@
+/* Tamaño fijo de la tarjeta */
+
+.card {
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+/* Avatar con fondo azul como en el diseño */
+.avatar-container {
+  width: 120px;
+  height: 120px;
+  background-color: #0d6efd;
+}
+
+/* Estilos de los iconos de Bootstrap */
+.action-btn {
+  color: #8c8c8c;
+  transition: color 0.2s ease-in-out;
+}
+
+.action-btn i {
+  font-size: 1.75rem; /* Tamaño del icono de Bootstrap */
+  line-height: 1;
+}
+
+.action-label {
+  font-size: 0.7rem;
+  color: #8c8c8c;
+  margin-top: 4px;
+}
+
+/* Efecto al pasar el cursor */
+.action-btn:hover,
+.action-btn:hover i,
+.action-btn:hover .action-label {
+  color: #0d6efd;
+}
