@@ -2,6 +2,8 @@ import { Component, inject, input, signal } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { form, FormField, pattern, required } from '@angular/forms/signals';
 import { IUser } from '../../interfaces/iuser.interface';
+import { toast } from 'ngx-sonner';
+import { Router } from '@angular/router';
 
 @Component({
   imports: [FormField],
@@ -14,6 +16,7 @@ export class UserFormComponent {
   _id = input<string>();
 
   userService = inject(UsersService);
+  router = inject(Router);
 
   title = signal<string>('NUEVO USUARIO');
   buttonText = signal<string>('Guardar');
@@ -65,13 +68,26 @@ export class UserFormComponent {
     if(!id){
       const response = await this.userService.createUser(this.userForm().value());
       console.log('Usuario creado:', response);
+      if(response.id){
+        toast.success('Usuario creado correctamente');
+        this.router.navigate(['/home']);
+        this.resetForm();
+      }
     }else{
-      // lanzar PUT
       const response = await this.userService.updateUser(id, this.userForm().value());
-      console.log('Usuario actualizado:', response);
+      //console.log('Usuario actualizado:', response);
+      if(response){
+        toast.success('Usuario actualizado correctamente');
+        this.router.navigate(['/home']);
+        this.resetForm();
+      }
     }
 
     
+    
+  }
+
+  private resetForm(){
     this.userForm().reset({
       "_id": "",
       "id": 0,
@@ -83,5 +99,4 @@ export class UserFormComponent {
       "password": ""
     });
   }
-
 }
