@@ -76,15 +76,12 @@ export class UserFormComponent {
     }else{
       const response = await this.userService.updateUser(id, this.userForm().value());
       //console.log('Usuario actualizado:', response);
-      if(response){
+      if(response._id){
         toast.success('Usuario actualizado correctamente');
         this.router.navigate(['/home']);
         this.resetForm();
       }
     }
-
-    
-    
   }
 
   private resetForm(){

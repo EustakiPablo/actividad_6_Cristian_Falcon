@@ -25,4 +25,8 @@ export class UsersService {
         return await firstValueFrom(this.httpClient.put<IUser>(`${this.apiUrl}/${_id}`, user));
     }
 
+    async deleteUser(_id: string) {
+        return await firstValueFrom(this.httpClient.delete<IUser>(`${this.apiUrl}/${_id}`));
+    }
+
 }

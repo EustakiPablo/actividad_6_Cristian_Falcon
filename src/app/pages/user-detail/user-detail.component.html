@@ -1,0 +1,47 @@
+<div class="container my-5 d-flex justify-content-center">
+  <div class="d-flex flex-column flex-md-row align-items-center gap-4 gap-md-5">
+    
+    <!-- Avatar grande a la izquierda -->
+    <div class="avatar-container rounded-circle overflow-hidden flex-shrink-0">
+      <img 
+        [src]="user().image" 
+        [alt]="user().first_name + ' ' + user().last_name" 
+        class="w-100 h-100 object-fit-cover"
+      >
+    </div>
+
+    <!-- Línea divisoria vertical en pantallas medianas/grandes -->
+    <div class="border-start d-none d-md-block align-self-stretch my-2"></div>
+
+    <!-- Información del Usuario y Botones -->
+    <div class="d-flex flex-column justify-content-center">
+      <!-- Nombre y Apellido -->
+      <h2 class="fw-normal text-secondary mb-1">{{ user().first_name }}</h2>
+      <h2 class="fw-normal text-secondary mb-4">{{ user().last_name }}</h2>
+
+      <!-- Nombre Usuario y Email -->
+      <p class="mb-2">
+        <strong class="fw-bold text-dark">Nombre Usuario:</strong> 
+        <span class="text-secondary ms-1">{{ user().username }}</span>
+      </p>
+      <p class="mb-4">
+        <strong class="fw-bold text-dark">Email:</strong> 
+        <span class="text-secondary ms-1">{{ user().email }}</span>
+      </p>
+
+      <!-- Grupo de botones unidos (Btn Group de Bootstrap) -->
+      <div class="btn-group border rounded" role="group" aria-label="Acciones de usuario">
+        <button (click)="delete()" type="button" class="btn btn-custom px-3 py-2">
+          Eliminar
+        </button>
+        <a [routerLink]="['/updateuser', _id()]"  class="btn btn-custom border-start border-end px-3 py-2">
+          Actualizar
+        </a>
+        <a [routerLink]="['/home']" type="button"  class="btn btn-custom px-3 py-2">
+          Volver a listado
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
